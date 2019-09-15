@@ -8,11 +8,9 @@ public class SSNValidator {
         validateSsnLength(ssn);
     }
 
-
     private static void validateSsnLength(String ssn) {
         if (ssn.length() != 11) {
             throw new ValidationException("Invalid SSN");
         }
     }
-
 }
