@@ -18,7 +18,7 @@ public class SSNValidator {
     private static void validateDayOfMonth(String ssn) {
         int day = Integer.parseInt(ssn.substring(0,2));
 
-        if (day < 1 || day > 31) {
+        if (day < 1 || day > 71) {
             throw new ValidationException("Day of month is out of range");
         }
     }
