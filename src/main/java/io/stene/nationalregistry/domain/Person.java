@@ -15,4 +15,5 @@ public class Person {
     @JsonProperty("ssn")
     String socialSecurityNumber;
     String name;
+    String address;
 }
