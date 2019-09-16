@@ -1,5 +1,6 @@
 package io.stene.nationalregistry.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Person {
     Integer id;
-    String ssn;
+    @JsonProperty("ssn")
+    String socialSecurityNumber;
     String name;
 }

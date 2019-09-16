@@ -15,7 +15,7 @@ public class PersonRepository {
     Map<Integer, Person> map = new HashMap<>();
 
     public Person add(Person person) {
-        SSNValidator.validate(person.getSsn());
+        SSNValidator.validate(person.getSocialSecurityNumber());
         person.setId(ID_COUNTER++);
         map.put(person.getId(), person);
 
@@ -28,7 +28,7 @@ public class PersonRepository {
 
     public Person getBySSn(String ssn) {
         return map.values().stream()
-                .filter(person -> person.getSsn().equals(ssn))
+                .filter(person -> person.getSocialSecurityNumber().equals(ssn))
                 .findFirst().orElse(null);
     }
 }
