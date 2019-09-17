@@ -14,6 +14,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Provider("national-registry")
 @IgnoreNoPactsToVerify
 @PactBroker(host = "localhost", port = "3000")
@@ -30,5 +33,15 @@ public class ProviderPactTest {
     @State("Person with ssn (71129011111) exist")
     public void getPersonPact() {
         personRepository.add(new Person(null, "71129011111", "Test testesen", null));
+    }
+
+    @State("A person exist")
+    public Map<String, Object> getPersonByIdPact() {
+        Person person = personRepository.add(new Person(null, "12345611111", "", null));
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", person.getId());
+
+        return map;
     }
 }

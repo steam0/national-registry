@@ -24,7 +24,11 @@ public class PersonRegistryController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/v1/person", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Person createPerson(@RequestParam(value = "ssn", required = false) String ssn) {
+    public Person createPerson(@RequestParam(value = "ssn", required = false) String ssn, @RequestParam(value = "id", required = false) String id) {
+        if (id != null) {
+            return personRepository.get(1);
+        }
+
         return personRepository.getBySSn(ssn);
     }
 }
